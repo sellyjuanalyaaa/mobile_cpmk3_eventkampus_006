@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
   import '../../../routes/app_routes.dart'; 
 
   class HomeView extends StatelessWidget {
-    // DIPERBAIKI: Menggunakan 'super.key'
+    
     const HomeView({super.key});
 
     @override
@@ -205,13 +205,12 @@ import 'package:flutter/material.dart';
     }
   }
 
-  // WIDGET HELPER:
-  // Widget kecil untuk menampilkan baris ikon + teks (Tanggal & Lokasi)
+
   class _InfoRow extends StatelessWidget {
     final IconData icon;
     final String text;
 
-    // DIPERBAIKI: Menggunakan 'super.key'
+    
     const _InfoRow({required this.icon, required this.text});
 
     @override

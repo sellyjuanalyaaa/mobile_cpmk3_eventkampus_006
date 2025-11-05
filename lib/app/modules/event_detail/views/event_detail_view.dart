@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; 
 
 class EventDetailView extends StatelessWidget {
   // Menambahkan const constructor untuk konsistensi
@@ -14,7 +15,7 @@ class EventDetailView extends StatelessWidget {
         shadowColor: Colors.teal.withOpacity(0.5),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Get.back(), 
         ),
       ),
       body: Container(
@@ -29,27 +30,35 @@ class EventDetailView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header dengan gambar
               Stack(
                 children: [
-                  // Placeholder untuk gambar poster
-                  Container(
+                  
+                  Image.asset(
+                    'assets/images/poster_seminar_ai.jpg', // Path ke gambar event
                     height: 280,
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [Colors.teal[200]!, Colors.teal[50]!],
-                      ),
-                    ),
-                    child: Icon(
-                      Icons.image_outlined,
-                      size: 120,
-                      color: Colors.teal[300],
-                    ),
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                     
+                      return Container(
+                        height: 280,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [Colors.teal[200]!, Colors.teal[50]!],
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.image_outlined,
+                          size: 120,
+                          color: Colors.teal[300],
+                        ),
+                      );
+                    },
                   ),
-                  // Back button overlay
+
                   Positioned(
                     top: 0,
                     left: 0,
@@ -89,18 +98,20 @@ class EventDetailView extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    // Info cards
-                    _InfoCard(
+                    
+                    
+                    const _InfoCard( // <-- Menggunakan '_InfoCard' (privat)
                       icon: Icons.calendar_today_rounded,
                       title: 'Tanggal & Waktu',
                       content: '10 November 2025\n09:00 - 16:00 WIB',
                     ),
                     const SizedBox(height: 12),
-                    _InfoCard(
+                    const _InfoCard( // <-- Menggunakan '_InfoCard' (privat)
                       icon: Icons.location_on_rounded,
                       title: 'Lokasi',
                       content: 'Aula Gedung Rektorat\nLantai 2, Universitas',
                     ),
+                    
                     const SizedBox(height: 24),
                     // Deskripsi Section
                     Container(
@@ -149,6 +160,7 @@ class EventDetailView extends StatelessWidget {
                             const SnackBar(
                               content: Text('Terima kasih telah mendaftar!'),
                               duration: Duration(seconds: 2),
+                              backgroundColor: Colors.teal, // SnackBar dibuat senada
                             ),
                           );
                         },

@@ -130,17 +130,10 @@ class KontakView extends StatelessWidget {
                     color: Colors.teal[800],
                   ),
                 ),
-                const SizedBox(height: 16), // Memberi sedikit padding atas
-
-                // --- PERUBAHAN DI SINI ---
-                // Mengganti Row dengan Wrap untuk responsivitas.
-                // Item akan pindah ke baris baru jika tidak muat.
+                const SizedBox(height: 16), 
                 Wrap(
-                  // Pusatkan grup tombol secara horizontal
                   alignment: WrapAlignment.center,
-                  // Beri jarak horizontal antar tombol
                   spacing: 24.0,
-                  // Beri jarak vertikal jika tombol "turun" ke baris baru
                   runSpacing: 16.0,
                   children: [
                     _SocialButton(
@@ -160,7 +153,6 @@ class KontakView extends StatelessWidget {
                     ),
                   ],
                 ),
-                // --- BATAS PERUBAHAN ---
 
                 const SizedBox(height: 20),
               ],
@@ -218,8 +210,7 @@ class _KontakCard extends StatelessWidget {
               child: Icon(icon, color: Colors.white, size: 28),
             ),
             const SizedBox(width: 16),
-            // Expanded memastikan teks mengambil sisa ruang
-            // dan akan "wrap" (pindah baris) jika terlalu panjang.
+           
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

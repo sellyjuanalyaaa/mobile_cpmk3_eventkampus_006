@@ -1,5 +1,3 @@
-// lib/app/routes/app_pages.dart
-
 import 'package:get/get.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/event_detail/views/event_detail_view.dart';
